@@ -20,7 +20,7 @@ export class ShopifyCustomer {
   @Column({ nullable: true })
   phone: string;
 
-  @Column({ default: false })
+  @Column({ name: 'accepts_marketing', default: false })
   acceptsMarketing: boolean;
 
   @Column('decimal', { precision: 10, scale: 2, default: 0 })

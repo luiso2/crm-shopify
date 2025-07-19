@@ -2,7 +2,6 @@ import { Injectable, NotFoundException, ConflictException } from '@nestjs/common
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from './user.entity';
-import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class UsersService {
@@ -29,7 +28,10 @@ export class UsersService {
   }
 
   async findByEmail(email: string): Promise<User> {
-    const user = await this.usersRepository.findOne({ where: { email } });
+    const user = await this.usersRepository.findOne({ 
+      where: { email },
+      select: ['id', 'email', 'firstName', 'lastName', 'avatar', 'role', 'isActive', 'lastLogin', 'createdAt', 'updatedAt'],
+    });
     if (!user) {
       throw new NotFoundException(`User with email ${email} not found`);
     }
@@ -41,11 +43,6 @@ export class UsersService {
     const existingUser = await this.usersRepository.findOne({ where: { email: userData.email } });
     if (existingUser) {
       throw new ConflictException(`User with email ${userData.email} already exists`);
-    }
-
-    // Hash password if provided
-    if (userData.password) {
-      userData.password = await bcrypt.hash(userData.password, 10);
     }
 
     // Generate unique ID if not provided
@@ -62,11 +59,6 @@ export class UsersService {
   }
 
   async update(id: string, userData: Partial<User>): Promise<User> {
-    // If updating password, hash it
-    if (userData.password) {
-      userData.password = await bcrypt.hash(userData.password, 10);
-    }
-
     // Don't allow email update if it already exists for another user
     if (userData.email) {
       const existingUser = await this.usersRepository.findOne({ where: { email: userData.email } });

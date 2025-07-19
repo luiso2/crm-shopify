@@ -18,7 +18,7 @@ export class ShopifyCustomersService {
     const query = this.shopifyCustomersRepository.createQueryBuilder('customer');
 
     if (filters?.acceptsMarketing !== undefined) {
-      query.andWhere('customer.acceptsMarketing = :acceptsMarketing', { 
+      query.andWhere('customer.accepts_marketing = :acceptsMarketing', { 
         acceptsMarketing: filters.acceptsMarketing 
       });
     }
