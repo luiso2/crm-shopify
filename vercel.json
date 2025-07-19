@@ -1,9 +1,9 @@
 {
   "version": 2,
-  "name": "crm-backend-shopify",
   "buildCommand": "npm run build",
   "outputDirectory": ".",
   "installCommand": "npm install",
+  "framework": null,
   "functions": {
     "api/index.js": {
       "includeFiles": "dist/**"
