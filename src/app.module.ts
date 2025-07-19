@@ -12,10 +12,17 @@ import { ConversationsModule } from './conversations/conversations.module';
 import { SupportTicketsModule } from './support-tickets/support-tickets.module';
 import { LeadsModule } from './leads/leads.module';
 import { StripePaymentsModule } from './stripe-payments/stripe-payments.module';
+import { StripeCustomersModule } from './stripe-customers/stripe-customers.module';
+import { StripeSubscriptionsModule } from './stripe-subscriptions/stripe-subscriptions.module';
+import { WebhooksModule } from './webhooks/webhooks.module';
 import { MessagesModule } from './messages/messages.module';
 import { ShopifyProductsModule } from './shopify-products/shopify-products.module';
 import { FilesModule } from './files/files.module';
 import { CouponsModule } from './coupons/coupons.module';
+import { AnalyticsModule } from './analytics/analytics.module';
+import { ReportsModule } from './reports/reports.module';
+import { UserProfilesModule } from './user-profiles/user-profiles.module';
+import { NotificationsModule } from './notifications/notifications.module';
 
 @Module({
   imports: [
@@ -40,10 +47,17 @@ import { CouponsModule } from './coupons/coupons.module';
     SupportTicketsModule,
     LeadsModule,
     StripePaymentsModule,
+    StripeCustomersModule,
+    StripeSubscriptionsModule,
     MessagesModule,
     ShopifyProductsModule,
     FilesModule,
     CouponsModule,
+    WebhooksModule,
+    AnalyticsModule,
+    ReportsModule,
+    UserProfilesModule,
+    NotificationsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
