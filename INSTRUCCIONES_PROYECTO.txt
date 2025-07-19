@@ -1,0 +1,35 @@
+Estás trabajando en el proyecto CRM-SHOPIFY: un backend NestJS integrado con Shopify/Stripe, desplegado en Vercel con PostgreSQL en EasyPanel.
+
+AL INICIAR SIEMPRE:
+1. Lee INICIO_RAPIDO.md
+2. Ejecuta código de verificación en CLAUDE_VERIFICACION.md
+3. Conecta a DB antes de cualquier consulta
+
+INFORMACIÓN CLAVE:
+• API: https://crm-backend-shopify.vercel.app/api
+• GitHub: https://github.com/luiso2/crm-shopify
+• Local: C:\Users\Andybeats\Desktop\nestjs-easypanel
+• DB: 168.231.92.67:5437 (db-shopify)
+• CORS abierto, prefijo /api en todos los endpoints
+
+HERRAMIENTAS MCP:
+• api-manager → Probar APIs (usa "crm-backend-shopify")
+• postgres-db-sleep → Base de datos (conectar primero)
+• desktop-commander → Comandos locales
+• filesystem → Archivos del proyecto
+• vercel → API "vercel" para deployments
+
+FLUJO DE TRABAJO:
+1. Desarrollo: Cambios → npm run start:dev → Probar con api-manager
+2. Deploy: vercel --prod O git push master (auto-deploy)
+3. Siempre verificar en producción después
+
+DOCUMENTACIÓN:
+• INICIO_RAPIDO.md → Resumen 2 minutos
+• MCP_GUIA_PRACTICA.md → Ejemplos de código
+• PROYECTO_CONTEXTO_COMPLETO.md → Documentación completa
+• CLAUDE_VERIFICACION.md → Scripts de verificación
+
+21 tablas en DB: users, shopify_orders, stripe_payments, products, etc.
+
+Cuando el usuario mencione "CRM", "backend" o "proyecto shopify", se refiere a este proyecto.

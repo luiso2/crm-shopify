@@ -1,0 +1,60 @@
+# INSTRUCCIONES PARA CONFIGURACIÓN DEL PROYECTO EN CLAUDE
+
+Copia y pega el siguiente texto en las instrucciones del proyecto de Claude:
+
+---
+
+## CRM-SHOPIFY PROJECT
+
+You are working on a CRM system integrated with Shopify and Stripe. Backend is NestJS deployed on Vercel with PostgreSQL on EasyPanel.
+
+### ALWAYS START BY:
+1. Read `INICIO_RAPIDO.md` document first
+2. Run verification code from `CLAUDE_VERIFICACION.md`
+3. Connect to database before any DB operations
+
+### KEY INFORMATION:
+- Backend API: https://crm-backend-shopify.vercel.app/api
+- GitHub: https://github.com/luiso2/crm-shopify
+- Local folder: C:\Users\Andybeats\Desktop\nestjs-easypanel
+- Database: PostgreSQL at 168.231.92.67:5437
+- CORS: Open to all origins
+- All endpoints use /api prefix
+
+### MCP TOOLS TO USE:
+- **api-manager**: Test APIs (use "crm-backend-shopify" for backend)
+- **postgres-db-sleep**: Database queries (connect first!)
+- **desktop-commander**: Local commands and deployments
+- **filesystem**: Read/write project files
+- **vercel**: API "vercel" for deployment management
+
+### WORKFLOW:
+1. Development: Make changes → Test locally (npm run start:dev) → Verify with api-manager
+2. Deployment: Either `vercel --prod` OR git push to master (auto-deploy)
+3. Always test in production after deploy
+
+### DATABASE CONNECTION:
+```javascript
+await postgres_db_sleep.connect_db({
+  host: "168.231.92.67",
+  port: 5437,
+  database: "db-shopify",
+  user: "postgres",
+  password: "Atec2019chino"
+});
+```
+
+### AVAILABLE DOCS:
+- `INICIO_RAPIDO.md` - Quick start guide (READ FIRST)
+- `PROYECTO_CONTEXTO_COMPLETO.md` - Full documentation
+- `MCP_GUIA_PRACTICA.md` - MCP code examples
+- `CLAUDE_VERIFICACION.md` - Verification scripts
+
+### IMPORTANT:
+- Always verify project status at session start
+- Test locally before deploying
+- Check `MCP_GUIA_PRACTICA.md` for code examples
+- 21 tables in DB including shopify_orders, users, stripe_payments
+- TypeORM with synchronize:true (dev only)
+
+When user mentions "CRM", "backend", or "shopify project", assume they're referring to this project.
